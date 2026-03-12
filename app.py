@@ -12,7 +12,7 @@ DB_CONFIG = {
     "database": "UsoPessoal"
 }
 
-EMAIL_RE = re.copile(r"^[^\s@]+@[^\s@]+\.[^s@]+$")
+EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
 
 def senha_forte(s: str) -> bool:
     if len(s) < 8:
@@ -69,5 +69,5 @@ def register():
         if conn:
             conn.close()
 
-if __name__ == "__name__":
+if __name__ == '__main__':
     app.run(debug=True)
