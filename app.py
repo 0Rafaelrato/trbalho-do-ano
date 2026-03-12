@@ -7,18 +7,21 @@ app = Flask(__name__)
 
 DB_CONFIG = {
     "host": "localhost",
-    "user": "tool",
-    "password": "",
-    "database": "UsoPessoal"
+    "user": "root",
+    "password": "123456",
+    "database": "usopessoal"
 }
 
 EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
 
 def senha_forte(s: str) -> bool:
+    print(f"Senha recebida para validar: '{s}'") # Debug: veja o que chega aqui
     if len(s) < 8:
         return False
-    if not re.search(r"[A-Za-z]", s):
+    # Verifica se tem pelo menos uma letra
+    if not re.search(r"[a-zA-Z]", s):
         return False
+    # Verifica se tem pelo menos um número
     if not re.search(r"\d", s):
         return False
     return True
@@ -30,9 +33,9 @@ def home():
 @app.post("/register")
 def register():
     # recebe dados do FORM (HTML)
-    nome = (request.form.get("nome") or "").strip()
-    email = (request.form.get("email") or "").strip()
-    senha = (request.form.get("senha") or "").strip()
+    nome = (request.form.get("nome")).strip()
+    email = (request.form.get("email")).strip()
+    senha = (request.form.get("password")).strip()
 
     if len(nome) < 3:
         return "Nom dever ter pelo menos 3 caracteres.", 400
@@ -54,7 +57,7 @@ def register():
             return "Esse email já esta cadastrado.", 400
         
         cur.execute(
-            "INSERT INTO usuarios (noem, email, senha) VALUES (%s, %s, %s)",
+            "INSERT INTO usuarios (nome, email, senha) VALUES (%s, %s, %s)",
             (nome, email, senha)
         )
         conn.commit()
