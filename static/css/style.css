@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000000);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Card */
+.card {
+    max-width: 520px;
+    margin: 40px auto;
+    background: #0d0d0d;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.2);
+    border: 1px solid #222;
+    position: relative;
+}
+
+/* Linha estilo "bat-sinal" */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, #ffcc00, #b38f00);
+    border-radius: 14px 14px 0 0;
+}
+
+/* Título */
+h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #ffcc00;
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
+}
+
+/* Texto */
+p {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #ddd;
+}
+
+/* Inputs */
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: #111;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+/* Foco */
+input:focus,
+select:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+}
+
+/* Botão */
+button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    background: linear-gradient(90deg, #ffcc00, #b38f00);
+    color: #000;
+    transition: all 0.3s;
+}
+
+/* Hover */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 204, 0, 0.4);
+}
+
+/* Mensagens */
+.msg {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+/* Sucesso */
+.ok {
+    display: block;
+    background: #1a1a1a;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+}
+
+/* Erro */
+.erro {
+    display: block;
+    background: #1a1a1a;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+}
+
+/* Regras */
+ul#regras {
+    margin-top: 15px;
+    padding-left: 20px;
+    color: #ff4444;
+    font-size: 14px;
+}
+
+ul#regras li {
+    margin-bottom: 5px;
+}
